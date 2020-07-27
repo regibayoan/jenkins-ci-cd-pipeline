@@ -30,10 +30,15 @@ Step 14: **Don't start the connection yet**
 Step 15: Before connecting, add your private key. Go to **Edit** -> **Settings** -> **SFTP** -> Add your key file -> **OK**  
 <img src="images/Screenshot%202020-07-27%2023.47.37.png" width="800" height="100">  
 Step 16: Click on **Quickconnect** --> **OK**  
-Step 17: Go to Jenkins Dashboard, Click on **Slave1**. Download the **agent.jar** file by clicking on it.  (The second link down works)    
+Step 17: Go to Jenkins Dashboard, Click on **Slave1**. Download the **agent.jar** file by clicking on it.  (The second link down works)  
+<img src="images/Screenshot%202020-07-27%2023.55.26.png" width="800" height="100">    
 Step 18: Now **drag and drop** the **agent.jar** file to the ubuntu folder in FileZilla  
+<img src="images/Screenshot%202020-07-27%2023.58.26.png" width="800" height="100">  
+<img src="images/Screenshot%202020-07-27%2023.58.37.png" width="800" height="100">
 Step 19: Let's verify if the file has been transferred to Slave1. Login to **Slave1** instance  
 Step 20: Change hostname so easier to know which instance it is  
+<img src="images/Screenshot%202020-07-28%2000.00.46.png" width="800" height="100">
 Step 21: Now do **ls** command to verify if **agent.jar** is present  
+<img src="images/Screenshot%202020-07-28%2000.01.46.png" width="800" height="100">
 
 
