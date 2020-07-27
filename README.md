@@ -21,4 +21,12 @@ Step 8: Then add the current working directory path to **/home/ubuntu/jenkins** 
 <img src="images/Screenshot%202020-07-27%2023.25.07.png" width="550" height="250">  
 Step 9: Make another node **Slave2** and **Copy Existing Node** (Slave1) -> **Save**  
 <img src="images/Screenshot%202020-07-27%2023.26.48.png" width="550" height="200">  
-Step 10: 
+Step 10: You should see the list of nodes that we have on the Jenkins Dashboard  
+Step 11: Download **FileZilla**    
+Step 12: **In Filezilla:**     
+Step 13Copy the **Slave1 IP Address** as **Host**. Username: **ubuntu**. Leave the password field empty. **Port 22**    
+Step 14: **Don't start the connection yet**   
+Step 15: Before connecting, add your private key. Go to **Edit** -> **Settings** -> **SFTP** -> Add your key file -> **OK**   
+Step 16: Click on **Quickconnect** --> **OK**    
+Step 17:
+
