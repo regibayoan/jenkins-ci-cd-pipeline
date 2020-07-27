@@ -7,7 +7,7 @@
 4. CI/CD pipeline triggered by webhook
 
 Step 1: Check the status of Jenkins Master  
-picture here  
+![](images/)  
 Step 2: Setup admin account and login into Jenkins Dashboard  
 picture here  
 Step 3: Go to **Manage Jenkins** -> **Configure Global Security**  
