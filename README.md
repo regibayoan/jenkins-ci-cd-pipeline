@@ -22,11 +22,18 @@ Step 8: Then add the current working directory path to **/home/ubuntu/jenkins** 
 Step 9: Make another node **Slave2** and **Copy Existing Node** (Slave1) -> **Save**  
 <img src="images/Screenshot%202020-07-27%2023.26.48.png" width="550" height="200">  
 Step 10: You should see the list of nodes that we have on the Jenkins Dashboard  
+<img src="images/Screenshot%202020-07-27%2023.37.09.png" width="550" height="100">  
 Step 11: Download **FileZilla**    
 Step 12: **In Filezilla:**     
 Step 13Copy the **Slave1 IP Address** as **Host**. Username: **ubuntu**. Leave the password field empty. **Port 22**    
 Step 14: **Don't start the connection yet**   
-Step 15: Before connecting, add your private key. Go to **Edit** -> **Settings** -> **SFTP** -> Add your key file -> **OK**   
-Step 16: Click on **Quickconnect** --> **OK**    
-Step 17:
+Step 15: Before connecting, add your private key. Go to **Edit** -> **Settings** -> **SFTP** -> Add your key file -> **OK**  
+<img src="images/Screenshot%202020-07-27%2023.47.37.png" width="800" height="100">  
+Step 16: Click on **Quickconnect** --> **OK**  
+Step 17: Go to Jenkins Dashboard, Click on **Slave1**. Download the **agent.jar** file by clicking on it.  (The second link down works)    
+Step 18: Now **drag and drop** the **agent.jar** file to the ubuntu folder in FileZilla  
+Step 19: Let's verify if the file has been transferred to Slave1. Login to **Slave1** instance  
+Step 20: Change hostname so easier to know which instance it is  
+Step 21: Now do **ls** command to verify if **agent.jar** is present  
+
 
