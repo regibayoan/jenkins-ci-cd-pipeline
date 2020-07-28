@@ -54,6 +54,66 @@ Commands: **sudo apt update** -> **sudo apt install openjdk-8-jdk**
 **Important Note: Don't end the sessions we just created. Duplicate the sessions to perform further operations on Slave1 and Slave2**  
 **Step 28:** Now that both Slave1 and Slave2 are connected, it should look like this  
 <img src="images/Screenshot%202020-07-28%2001.28.22.png" width="800" height="150">  
+**Step 29:** After we have successfully created the Jenkins Master-Slave cluster on AWS, we will not create a CI/CD pipeline triggered by Git Webhook  
+**Step 30:** Install Docker in both Slave1 and Slave2  
+**Commands: sudo apt update -> sudo apt-get remove docker docker-engine docker.io -> sudo apt install docker.io -> sudo systemctl start docker -> sudo systemctl enable docker -> sudo systemctl status docker**  
+**Step 31:** Open Jenkins Dashboard. **Create a new job** (Freestyle Project) for **Slave1** --> Name the project as **Test** -> **OK**    
+**Step 32:** Select GitHub project then paste your repository link    
+**Step 33:** Click on **Restrict where this project can be run** -> Add **Slave1** there    
+**Step 34:** Go to Source Code Management, click on Git, add your Git repository here as well -> Click on **Save**  
+**Step 35:** Copy files from **https://github.com/hshar/devopsIQ.git** to your repository for sample files    
+**Step 36:** Click on **Build Now**, if the buiding is successful there wil be a **blue circle** in the building history  
+**Step 37:** Click on the blue circle of Build #1
+**Step 38:** Let's verify that build was successful by looking at Slave1 and see if the repository has been cloned into Test job
+**Commands: ls -> cd workspace -> ls -> cd Test -> ls**  
+**Step 39:** Now we will deploy the website that we have stored in our repository
+**Step 40:** Go back to Test job in Jenkins -> Configure -> Build -> Execute Shell -> Add commands below  
+**Commands:** sudo docker rm -f $(sudo docker ps -a -q)  
+sudo docker build /home/ubuntu/workspace/Test -t test  
+sudo docker run -it -p 82:80 -d test  
+**Step 41:** Click on **Save**  
+**Step 42:** Before building our job again we must add one arbitrary container in **Slave1**  
+**Step 43:** Add a container by performing **sudo docker run -it -d ubuntu**  
+**Step 44:** Once the container is open, open Jenkins Dashboard and **build the project**  
+**Step 45:** Once build is successful, open browser and go to **Slave1 IP:82**
+**Step 46:** Now enter **Slave1 IP:82/devopsIQ**. We should see the blue background
+**Step 47:** Now we will create a new project -> Name it **Prod**
+**Step 48:** Click on **GitHub project** and add the same GitHub url  
+**Step 49:** **Click on Restrict where this project can be run** -> **Slave2** -> **Source Code Management** -> **Git**  
+**Step 50:** Build -> Execute shell  
+**Commands:** sudo docker rm -f $(sudo docker ps -a -q)  
+sudo docker build /home/ubuntu/workspace/Prod -t production  
+sudo docker run -it -p 82:80 -d production  
+**Step 51:** Again, add one container to the Slave2 -> **sudo docker run -it -d ubuntu**  
+**Step 52:** Now that we have the arbitrary container, we can go to Jenkins dashboard and **build the project**  
+**Step 53:** Build the project **Prod**  
+**Step 54:** Now go to browser again and visit  **Slave2 IP:82/devopsIQ**. We should see the blue background as well  
+**Step 55:** Next, we will set it up where Prod job will be triggered only when Test job is compeleted  
+**Step 56:** Go to **Test job** -> **Configure** -> Add **Post-Build Actions** -> **Build Other Projects**  
+Picture of Post Build Here  
+**Step 57:** Click on **Save**. Now we will run jobs using pipeline  
+**Step 58:** Go to **Manage Jenkins** -> **Manage Plugins** -> **Available** -> Search for **Build Pipeline** -> **Install without restart**  
+**Step 59:** Go back to Jenkins Dashboard and click the **+** sign -> Enter view name -> **Build Pipeline View** -> **OK**
+**Step 60:** There add the Build Pipeline View title -> **Select Initial Job** as **Test** -> **OK** 
+**Step 61:** The build pipeline should look like below  
+Insert picture here  
+**Step 62:** Click on Run then refresh the page once -> The build pipeline should have turned the Prod green as well  
+**Step 63:** Now we will commit on GitHub, which should trigger our Jenkins job  
+**Step 64:** Go to Jenkins Dashboard -> Test -> Configure -> Build Triggers -> Check the GitHub hook trigger for GITScm polling -> Save  
+**Step 65:** Now configure GitHub Webhook. **Settings** -> Click on **Webhooks** -> Add Webhooks -> Insert Jenkins server address as shown **JenkinsServerIPAdress/github-webhook/**
+Insert pictures here  
+**Step 66:** Go to the master terminal to trigger a build  
+**git clone git-repositoryurl**  
+**Step 67:** Now we will try to modify the website from the master terminal. Go to the Master terminal -> devopsIQ -> index.html  
+**Step 68:** Make the modification in the title and body of the html  
+**Step 69:** Finally, commit and push the changes to GitHub. Jenkins should pick this up and automatically change the website for both **Test server** (Slave1) and **Production server** (Slave2)  
+ 
+
+
+
+
+
+
 
 
 
