@@ -45,10 +45,16 @@
 **Step 24:** Next, **install openjdk on both Slave1 and Slave2**    
 Commands: **sudo apt update** -> **sudo apt install openjdk-8-jdk**  
 **Step 25:** Next, we connect **Slave1** and **Slave2** to the AWS Jenkins Server. Go to the Jenkins Dashboard -> **Slave1** -> Copy the command line and run in slaves. It should show **"Connected"**  
-**Step 26:** If there's error encoutered like below, edit security group inbound rules of **Master** in AWS to allow Port mentioned in the eror  
+**Step 26:** If there's error encountered like below, edit security group inbound rules of **Master** in AWS to allow Port mentioned in the error  
+<img src="images/Screenshot%202020-07-28%2001.14.22.png" width="800" height="100">  
+<img src="images/Screenshot%202020-07-28%2001.16.27.png" width="550" height="100">      
+<img src="images/Screenshot%202020-07-28%2001.21.49.png" width="800" height="70">  
 **Step 27:** Repeat steps for Slave2 as well  
+<img src="images/Screenshot%202020-07-28%2001.24.30.png" width="800" height="250">   
 **Important Note: Don't end the sessions we just created. Duplicate the sessions to perform further operations on Slave1 and Slave2**  
 **Step 28:** Now that both Slave1 and Slave2 are connected, it should look like this  
+<img src="images/Screenshot%202020-07-28%2001.28.22.png" width="800" height="150">  
+
 
 
  
