@@ -55,7 +55,7 @@ Commands: **sudo apt update** -> **sudo apt install openjdk-8-jdk**
 **Important Note: Don't end the sessions we just created. Duplicate the sessions to perform further operations on Slave1 and Slave2**    
 **Step 28:** Now that both Slave1 and Slave2 are connected, it should look like this    
 <img src="images/Screenshot%202020-07-28%2001.28.22.png" width="800" height="150">    
-**Step 29:** After we have successfully created the Jenkins Master-Slave cluster on AWS, we will not create a CI/CD pipeline triggered by Git Webhook    
+**Step 29:** After we have successfully created the Jenkins Master-Slave cluster on AWS, we will now create a CI/CD pipeline triggered by Git Webhook    
 **Step 30:** Install Docker in both Slave1 and Slave2    
 **Commands: sudo apt update -> sudo apt-get remove docker docker-engine docker.io -> sudo apt install docker.io -> sudo systemctl start docker -> sudo systemctl enable docker -> sudo systemctl status docker**    
 **Step 31:** Open Jenkins Dashboard. **Create a new job** (Freestyle Project) for **Slave1** --> Name the project as **Test** -> **OK**  
