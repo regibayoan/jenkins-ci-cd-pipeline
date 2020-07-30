@@ -3,7 +3,7 @@
 ### Project Description
 1. Three EC2 instances (Master, Slave1, Slave2)
 2. Master = where Jenkins is installed, Slave1 = Test environment, Slave2 = Production environment  
-3. Install Jenkins in Master 
+3. Install Jenkins on Master 
 4. Setup a Jenkins Master-Slave cluster on AWS
 5. CI/CD pipeline triggered by webhook
 
